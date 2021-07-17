@@ -347,6 +347,8 @@
 "Assets/Cainos/Pixel Art Top Down - Basic/Script/SpriteColorAnimation.cs"
 "Assets/Cainos/Pixel Art Top Down - Basic/Script/TopDownCharacterController.cs"
 "Assets/Scripts/car.cs"
+"Assets/Scripts/LearnOperator.cs"
+"Assets/Scripts/Player.cs"
 -langversion:8.0
 
 /deterministic
