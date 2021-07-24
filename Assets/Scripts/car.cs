@@ -109,8 +109,13 @@ public class car : MonoBehaviour
         Drive(150,("咻咻咻~"));
         Drive(180, ("上阿!阿斯拉!!"));          // 呼叫小括號內的稱為引述
         // Drive(200, "碎石");                 // 時速200，音效 上阿!阿斯拉!! ，特效-碎石  錯誤!
-        Drive(200, effect："碎石");           // 使用多個預設值參數時可以使用 參數名稱：值
-        
+        Drive(200, effect："碎石");            // 使用多個預設值參數時可以使用 參數名稱：值
+
+        float kg = KG();                      //  區域變數，僅在此括號內使用
+        print("轉換為公斤數：" + kg);
+
+        float bmi = BMI(1,10);
+        print("BMI指數：" + bmi);
 
     }
 
@@ -154,6 +159,26 @@ public class car : MonoBehaviour
         print("開車中~時速" + speed);
         print("開車音效：" + sound);
         print("開車特效：" + effect);
+    }
+
+    /// <summary>
+    /// 噸位轉換為公斤
+    /// </summary>
+    /// <returns>轉換為公斤的重量資訊</returns>
+    private float KG()
+    {
+        return weight * 100;    
+    }
+
+    /// <summary>
+    /// 計算BMI
+    /// </summary>
+    /// <param name="weight">體重(公斤)</param>
+    /// <param name="hight">身高(公尺)</param>
+    /// <returns></returns>
+    private float BMI(float weight,float hight)
+    {
+        return weight / (height * height);
     }
     #endregion
 

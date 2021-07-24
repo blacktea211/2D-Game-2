@@ -30,5 +30,8 @@ public class Player : MonoBehaviour
 
     #endregion
 
-
+    private void Move()
+    { 
+    
+    }
 }
