@@ -2,7 +2,7 @@ using UnityEngine;  // 引用Unity引擎 提供的API  (UnityEngine 命名空間)
 // 類別
 // 語法：關鍵字 腳本名稱
 public class car : MonoBehaviour
-{ 
+{
     #region 註解
 
     // 註解
@@ -98,6 +98,63 @@ public class car : MonoBehaviour
     public GameObject goCamera;  // 遊戲物件包含場景上的及專內的預置物
     public Transform traCaar;    // 位置 變形
     public SpriteRenderer sprPicture;  //圖片
+    #endregion
+
+    //  開始事件
+    private void Start()
+    {
+        //  呼叫方法語法：方法名稱();
+        Drive50();
+        Drive100();
+        Drive(150,("咻咻咻~"));
+        Drive(180, ("上阿!阿斯拉!!"));          // 呼叫小括號內的稱為引述
+        // Drive(200, "碎石");                 // 時速200，音效 上阿!阿斯拉!! ，特效-碎石  錯誤!
+        Drive(200, effect："碎石");           // 使用多個預設值參數時可以使用 參數名稱：值
+        
+
+    }
+
+    //  更新事件：大約一秒60次，60FPS，處理物件移動或監聽玩家輸入
+    private void Update()
+    {
+        print("在print內顯示~");
+    }
+
+    #region  方法 ( 功能、函示 )   Method
+    //  方法：實作比較複雜的行為，例如：汽車往前開，開起汽車音響並撥放音樂..
+    //  欄位語法：修飾詞  類型  名稱  指定  預設值
+    //  方法語法：修飾詞  傳回類型  名稱 (...)  {程式區塊}
+    //  類型：void-無回傳
+    //  定義方法 ， 不會執行的 " 必須呼叫 " ，呼叫的方式：在事件 ( Start ) 內呼叫此方法
+    //  維護性，擴充性
+    
+    private void Drive50()
+    {
+        print("開車中~時速50");
+    }  
+    private void Drive100()
+    {
+        print("開車中~時速100");
+    }
+
+    //  參數語法：類型 參數名稱 - 寫在小括號內，僅在此方法內 ( 大括號內 ) 可使用
+    //  參數1，參數2，參數3...參數N
+    //  參數預設值： 類型  參數名稱 指定 值(選填式參數)
+    //  ★預設值只能放在最右邊
+
+
+    /// <summary>
+    /// 開車的方法，用來控制車子的速度 , 音效， 特效
+    /// </summary>
+    /// <param name="speed">車子的移動速度</param>
+    /// <param name="sound">車子的聲音</param>
+    /// <param name="effect">車子的特效</param>
+    private void Drive(int speed,string sound = "咻咻咻",string effect = "灰塵") 
+    {
+        print("開車中~時速" + speed);
+        print("開車音效：" + sound);
+        print("開車特效：" + effect);
+    }
     #endregion
 
 }
