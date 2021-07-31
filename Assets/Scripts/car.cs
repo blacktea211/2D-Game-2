@@ -100,6 +100,8 @@ public class car : MonoBehaviour
     public SpriteRenderer sprPicture;  //瓜
     #endregion
 
+    private string effect;
+
     //  秨﹍ㄆン
     private void Start()
     {
@@ -109,7 +111,7 @@ public class car : MonoBehaviour
         Drive(150,("~"));
         Drive(180, ("!吹┰!!"));          // ㊣珹腹ず嘿ま瓃
         // Drive(200, "窰ホ");                 // 硉200 !吹┰!! 疭-窰ホ  岿粇!
-        Drive(200, effect"窰ホ");            // ㄏノ箇砞把计ㄏノ 把计嘿
+        Drive(200, effect="窰ホ");            // ㄏノ箇砞把计ㄏノ 把计嘿
 
         float kg = KG();                      //  跋办跑计度珹腹ずㄏノ
         print("锣传そょ计" + kg);
