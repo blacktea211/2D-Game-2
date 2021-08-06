@@ -42,10 +42,11 @@ public class APINonStaic : MonoBehaviour
         #endregion
 
         #region 練習
-                         
+        // 取得非靜態屬性                 
         print("攝影機深度：" + cam1.depth);
         print("圖片的顏色：" + spr1.color);
 
+        // 設定非靜態屬性
         cam1.backgroundColor = Random.ColorHSV();
         spr1.flipY = true;
 

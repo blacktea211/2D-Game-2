@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 
     [Header("移動速度"), Range(0, 1000)]
     public float Movespeed = 10.5f;
-    
+
 
     [Header("跳躍高度")]
     public float Jumpheight = 100f;
@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rig;
     private Animator ani;
 
-    private Flare hValue;
+    private float hValue;
     #endregion
 
     #region 事件
@@ -41,20 +41,23 @@ public class Player : MonoBehaviour
     private void Update()
     {
         GetPlayerInputHorizontal();
+        TurnDirection();
+        Jump();
     }
 
     // 固定更新事件
     // 一秒固定執行 50 次，官方建議使用到物理API 要在此事件內執行
     private void FixedUpdate()
     {
-        
+        Move(hValue);
     }
     #endregion
 
-
     #region 方法
-
-    private void GetPlayerInputHorizontal() 
+    /// <summary>
+    /// 取得玩家輸入水平的軸向值：左與右，A、D、左、右
+    /// </summary>
+    private void GetPlayerInputHorizontal()
     {
         // 水平值 = 輸入.取得軸向(軸向名稱)
         // 作用：取得玩家按下水平鍵的值，按右為1，按左為-1，沒按為0
@@ -63,6 +66,13 @@ public class Player : MonoBehaviour
 
     }
 
+    [Header("重力"), Range(0.01f, 1)]
+    public float gravity = 1;
+  
+    /// <summary>
+    /// 移動
+    /// </summary>
+    /// <param name="horizontal">水平值移動</param>
     private void Move(float horizontal)
     {
         // 區域變數；在方法內的欄位，有區域性，僅限於次方法內存取
@@ -74,9 +84,28 @@ public class Player : MonoBehaviour
 
     }
 
+    private void TurnDirection()
+    {
+        print("玩家按下右" + Input.GetKeyDown(KeyCode.D));
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            // 如果玩家按下D， 將角度設為 0
+            transform.eulerAngles = Vector3.zero;
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            // 如果玩家按下A， 將角度設為 (0,180,0)
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
+    }
+
+    public float jump = 0.01f;
     private void Jump() 
     {
-    
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rig.AddForce(new Vector2(0, jump));
+        }
     }
 
     #endregion
