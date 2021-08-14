@@ -348,6 +348,7 @@
 "Assets/Cainos/Pixel Art Top Down - Basic/Script/TopDownCharacterController.cs"
 "Assets/Scripts/APINonStaic.cs"
 "Assets/Scripts/APIStatic.cs"
+"Assets/Scripts/BaseEnemy.cs"
 "Assets/Scripts/CameraControl.cs"
 "Assets/Scripts/car.cs"
 "Assets/Scripts/LearnOperator.cs"
